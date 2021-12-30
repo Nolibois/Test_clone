@@ -117,27 +117,34 @@
   <p>Inverser ce texte</p>
   <h3>Méthode 1</h3>
   <?php
-    $textToReverse  =   "Inverser ce texte";
-    $resultRev      =   strrev($textToReverse);
+    $textToReverse  = "Inverser ce texte";
+    $resultRev      = strrev($textToReverse);
     echo "<p>$resultRev<p>";
     
   ?>
   <h3>Méthode 2</h3>
   <?php
-    $implodeText    =   str_split($textToReverse);
-    $textReversed   =   array_reverse($implodeText);
-  ?>
+    $implodeText  = str_split($textToReverse);
+    $textReversed = array_reverse($implodeText);
+    ?>
   <p>
-  <?php
+    <?php
     for ($i=0; $i < count($textReversed); $i++) { 
       echo $textReversed[$i];
     }
-  ?>
+    ?>
   </p>
-  <?php
 
+  <h3>Méthode 3</h3>
+    <p>
+    <?php
+      $offset = strlen($textToReverse);
+
+      for ($i = $offset - 1; $i >= 0; $i--) { 
+        echo $textToReverse[$i];
+      }
+    ?>
+    </p>
     
-  ?>
-
 </body>
 </html>
