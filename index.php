@@ -145,6 +145,34 @@
       }
     ?>
     </p>
-    
+
+        
+    <h2>Fonction pour trouver un palindrome</h2>
+    <?php
+      function palindrome($str){
+        $reverse = strrev($str);
+        $right = false;
+
+        for ($i=0; $i < strlen($str); $i++) { 
+          if (($reverse[$i] !== $str[$i] || (int)$str)) {
+            echo "Ce n'est pas un palindrome!";
+            break;
+          }else {
+            $right = true;
+          }
+        }
+
+        if ($right) {
+          echo "Cest bien un palindrome.";
+        }
+      }
+
+      palindrome("azertytreza");
+      ?>
+
+    <h2>Fonction pour trouver un anagramme</h2>
+    <?php
+      
+    ?>
 </body>
 </html>
