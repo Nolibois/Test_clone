@@ -172,7 +172,38 @@
 
     <h2>Fonction pour trouver un anagramme</h2>
     <?php
-      
+      function anagram($anag1, $anag2){
+        $testAnag2 = str_split($anag2);
+
+        // Check the length of the words
+        if (strlen($anag1) !== strlen($anag2)) {
+          echo "<p>La longueur des mots n'est pas la même</p>";
+
+        } else {
+
+          for ($i=0; $i < strlen($anag1); $i++) { 
+            
+            // Check if each character is a letter
+            if(is_numeric($anag1[$i]) || is_numeric($anag2[$i])){
+              
+              echo "<p>Certains caractères ne sont pas des lettres.</p>";
+              break;
+            } 
+            
+            // Find each character in the other word
+            for ($j=0; $j < count($testAnag2); $j++) { 
+              
+              if($anag1[$i] === $testAnag2[$j]){
+                array_splice($testAnag2, $j, 1);
+              }
+            }
+          }
+          
+          echo (count($testAnag2) === 0)? "<p>Ces mots sont des anagrammes.</p>" : "<p>Ce ne sont pas des anagrammes</p>";
+        }
+      }
+
+      anagram("arrot", "rator");
     ?>
 </body>
 </html>
